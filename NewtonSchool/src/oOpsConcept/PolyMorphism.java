@@ -1,5 +1,5 @@
 package oOpsConcept;
-class Student{
+class Studentt{
 	int id;
 	String name;
 	
@@ -19,7 +19,7 @@ class Student{
 public class PolyMorphism {
 
 	public static void main(String[] args) {
-		Student s1=new Student();
+		Studentt s1=new Studentt();
 		s1.id=2515;
 		s1.name="Manish";
 		s1.printInfo(2514);
