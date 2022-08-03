@@ -1,0 +1,13 @@
+package char_ll;
+
+public class DoublyLLNode {
+
+    int data;
+    DoublyLLNode next;
+    DoublyLLNode prev;
+
+    public DoublyLLNode(int data) {
+        this.data = data;
+    }
+
+}

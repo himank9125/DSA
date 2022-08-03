@@ -1,0 +1,96 @@
+package char_doubt;
+
+public class DounbtSession5 {
+
+    public static void main(String[] args) {
+        int[] arr = {10, 80, 30, 90, 40, 50, 70};
+        quickSort(arr, 0, arr.length - 1);
+        for (int el : arr) {
+            System.out.print(el + " ");
+        }
+        System.out.println();
+    }
+
+    /*
+    6 5 4 3 2 1
+              e
+
+    Quick sort :
+
+    1. Count of smaller elements than 70.
+    2. Because all the smaller should be on the left of 70 and all teh greater elements should be on
+    the right of 70
+
+    arr : {10, 80, 30, 90, 40, 50, 70}
+           0   1   2   3   4   5   6
+
+       start = 0, end = 6, pivotEl = arr[end] = 70
+
+       Traversal from start to end - 1
+       smallerIdx = -1;
+       Traversal j = 0 - 5
+       j = 0, arr[j] <= pivotEl
+       smallerIdx++ // smallerIdx = 0
+       swap(arr[smallerIdx], arr[j]) // {10, 80, 30, 90, 40, 50, 70}
+
+       j = 1
+       arr[j] > pivot - do nothing
+
+       j = 2
+       arr[j] pivot (30 < 70), smallerIdx++ // smallerIdx = 1
+       swap(arr[smallerIdx], arr[j]) // {10, 30, 80, 90, 40, 50, 70 }
+
+       j = 3
+       arr[j](90) > pivot(70) No change
+
+       j = 4
+       arr[4] (40) <= pivotEL (70) smallerIdx++ // smallerIdx = 2
+       swap(arr[2], arr[4]) // 10 30 40 90 80 50 70
+
+       j = 5
+       arr[5] pivot, 50 <= 70 // smallerIdx++ , smallerIdx = 3
+       swap(arr[3], arr[5]) , {10 30 40 50 80 90 70}
+
+       We will come out of the loop  ->
+       swap(arr[smallerIdx + 1], arr[end]) , swap(arr[4], arr[6])
+       10 30 40 50 70 90 80
+       s           p     e
+
+       Quick sort is a recursive function,
+       quickSort(s, p - 1)
+       quickSort(p + 1, e)
+
+     */
+
+    public static void quickSort(int[] arr, int start, int end) {
+        if (start > end) {
+            return;
+        }
+        // Find the pivot idx
+        int pivotIdx = partition(arr, start, end);
+        quickSort(arr, start, pivotIdx - 1);
+        quickSort(arr, pivotIdx + 1, end);
+    }
+
+    public static int partition(int[] arr, int start, int end) {
+        // Select the pivot element
+        int pivot = arr[end];
+        int smallerIdx = start - 1;
+
+        for (int j = start; j <= end - 1; j++) {
+            if (arr[j] < pivot) {
+                smallerIdx++;
+                swap(arr, smallerIdx, j);
+            }
+        }
+        swap(arr, smallerIdx + 1, end);
+        return smallerIdx + 1;
+    }
+
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+}

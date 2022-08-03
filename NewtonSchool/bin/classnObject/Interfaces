@@ -1,0 +1,199 @@
+interface Shape { 
+	int getArea(); // public static abstract
+	int getPerimeter(); 
+	
+}
+
+class Rectangle implements Shape {
+	private int length;
+	private int breadth;
+	
+	public int getArea() {
+		return length * breadth;
+	}
+	
+	public int getPerimeter() {
+		return 2 * (length + breadth);
+	}
+}
+
+class Circle implements Shape {
+	private int radius;
+	
+	public int getArea() {
+		return 3 * radius * radius;
+	}
+	
+	public int getPerimeter() {
+		return 2 * 3 * radius;
+	}
+}
+
+class Square implements Shape {
+	private int side;
+	
+	public int getArea() {
+		return side * side;
+	}
+	
+	public int getPerimeter() {
+		return 4 * side;
+	}
+}
+
+
+
+//----------------------------------------------------------------------------------------------///
+
+
+
+package com.sr.dms;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Student implements Comparable<Student> {
+	private long rollNo;
+	private String name;
+	private int age;
+	private char gender;
+	
+	public Student(long rollNo, String name, int age, char gender) {
+		this.rollNo = rollNo;
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+	}
+
+	public long getRollNo() {
+		return rollNo;
+	}
+
+	public void setRollNo(long rollNo) {
+		this.rollNo = rollNo;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public char getGender() {
+		return gender;
+	}
+
+	public void setGender(char gender) {
+		this.gender = gender;
+	}	
+	
+	// Natural Sorting order 
+	// Criteria - sort by age - ascending
+	public int compareTo(Student otherStudent) {
+		if (this.age < otherStudent.age) {
+			return 1;
+		} else {
+			return -1; // Do the swapping
+		}
+		
+		// this  otherStudent 
+	}
+	
+	// Return String representation of the object 
+	public String toString() {
+		return rollNo + " " + name + " " + age + " " + gender;		
+	}
+	
+}
+
+class StudentComparator implements Comparator<Student> {
+	
+	// Criteria - sort by rollno descending
+	public int compare(Student s1, Student s2) {
+		if (s1.getRollNo() < s2.getRollNo()) {
+			return 1;
+		} else {
+			return -1;
+		}
+	}
+	
+}
+
+
+public class Test {
+	public static void main(String[] args) {
+		ArrayList<Integer> numbersList = new ArrayList<>();
+		numbersList.add(11);
+		numbersList.add(5);
+		numbersList.add(21);
+		numbersList.add(14);
+		numbersList.add(-1);
+		numbersList.add(-12);
+		numbersList.add(18);
+		numbersList.add(7);
+		
+		// Comparator - Customized Sort
+		
+//		Collections.sort(numbersList, );
+		
+		
+		System.out.println(numbersList);
+		
+		
+		List<Student> studentList = new ArrayList<>();
+		
+		Student s1 = new Student(1, "Amit", 19, 'M');
+		Student s2 = new Student(2, "Bhuvan", 21, 'M');
+		Student s3 = new Student(3, "Cathie", 20, 'F');
+		Student s4 = new Student(4, "Deepak", 25, 'M');
+		Student s5 = new Student(5, "Esha", 23, 'F');
+		
+		studentList.add(s1);
+		studentList.add(s2);
+		studentList.add(s3);
+		studentList.add(s4);
+		studentList.add(s5);
+		
+		StudentComparator stdComparator = new StudentComparator();
+		Collections.sort(studentList, stdComparator);
+		
+		System.out.println(studentList);
+		
+//		List<String> strList = new ArrayList<>();
+//		strList.add("Himanshu");
+//		strList.add("Swati");
+//		strList.add("Akhilesh");
+//		strList.add("Bhuvnesh");
+//		strList.add("Sarang");
+//		strList.add("Gaurav");
+//		
+//		Collections.sort(strList);
+//		System.out.println(strList);
+		
+		
+		// Student -> User Defined Datatype [by default]
+		// Integer, String, Double, Character, ... -> Java 
+		
+		// Interface in Java -> Data Members(optional, usually not kept) + Methods (Implementation is not given, only declaration is given)
+		// Class -> Data members + Methods 
+	}
+}
+
+
+//--------------------------------------------------------------------------------------------------------------------//
+https://www.journaldev.com/780/comparable-and-comparator-in-java-example
+
+https://www.youtube.com/watch?v=VYhmL038G1I
+
