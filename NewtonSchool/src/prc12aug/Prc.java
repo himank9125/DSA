@@ -63,10 +63,12 @@ public class Prc {
 		Node rev=null;
 		while(fast!=null && fast.next!=null) {
 			Node temp=slow.next;
-			slow.next=rev;
-			rev=slow;
-			slow=temp;
 			fast=fast.next.next;
+			slow.next=rev;
+//			fast=temp.next;
+			rev=slow;
+			slow=temp;	
+			
 		}
 		
 		if(fast!=null) {
