@@ -41,15 +41,12 @@ public class BinarySearchTree {
 			return false;
 		}		
 		if(x<root.val) {
-			search(root.left,x);
+			return search(root.left,x);
 		}
-		if(x>root.val){
-			search(root.right,x);
+		else if(x>root.val){
+			return search(root.right,x);
 		}
-		if(x==root.val) {
-			return true;
-		}
-		return false;
+		else return true;
 	}
 	
 	public static void main(String[] args) {
@@ -61,7 +58,7 @@ public class BinarySearchTree {
 		}
 		bst.inorder(N);
 		System.out.println();
-		System.out.println(bst.search(N, 12));
+		System.out.println(bst.search(N, 11));
 	}
 
 }
