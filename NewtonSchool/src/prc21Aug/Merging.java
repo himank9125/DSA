@@ -6,7 +6,7 @@ public class Merging {
 		int []A= {1, 3, 5, 8, 9};
 		int[]B= {2,3,4,5,6,7};
 		int[]C=merge(A,B);
-		for(int i:C) {
+		for(int i: C){
 			System.out.print(i+" ");
 		}
 

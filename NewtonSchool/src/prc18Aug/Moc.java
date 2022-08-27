@@ -59,5 +59,21 @@ public class Moc {
 		}
 		return rev;
 	}
+	public Node deleteVal(Node h,int x) {
+		if(h.data==x) {
+			return h.next;
+		}
+		Node temp=h;
+		Node temp2=h.next;
+		while(temp2!=null) {
+			if(temp2.data==x) {
+				temp.next=temp2.next;
+				return temp;
+			}
+			temp2=temp2.next;
+			temp=temp.next;
+		}
+		return h;
+	}
 
 }
