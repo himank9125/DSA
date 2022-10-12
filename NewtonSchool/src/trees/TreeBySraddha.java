@@ -4,6 +4,24 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class TreeBySraddha {
+	public boolean syem(Node root) {
+		if(root==null) {
+			return true;
+		}
+		return isMirror(root.left, root.right);
+	}
+	
+	public boolean isMirror(Node root1, Node root2) {
+		if(root1==null && root2==null) {
+			return true;
+		}
+		if(root1==null || root2==null) {
+			return false;
+		}
+		return ((root1.data==root2.data) && isMirror(root1.left, root2.right) && isMirror(root1.right,root2.left));
+	}
+	
+	
 	int i=-1;
 	public Node input(int[] arr) {
 		i++;

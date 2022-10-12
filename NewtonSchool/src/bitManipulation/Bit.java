@@ -1,18 +1,20 @@
 package bitManipulation;
+import java.util.*;
 
 public class Bit {
 
 	public static void main(String[] args) {
-		int a=5;
-		int b=6;
-//		if((a&1)==0) {
-//			System.out.println("even");
-//		}
-//		else {
-//			System.out.println("odd");
-//		}
-		System.out.println(a^b);
-
+		Scanner sc=new Scanner(System.in);
+//		20=10100    
+		int val=sc.nextInt();
+		int idx=sc.nextInt();
+		int bitMask=1<<idx;
+		if((val & bitMask)==0) {
+			System.out.println(val|bitMask);
+		}
+		else {
+			System.out.println(val&(~bitMask));
+		}
 	}
 
 }
