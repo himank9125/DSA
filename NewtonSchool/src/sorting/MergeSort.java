@@ -11,11 +11,12 @@ public class MergeSort {
 		}
 
 	}
-	public static void mergeSort(int[] Arr,int start,int end) {
-		int mid=(end+start)/2;
+	public static void mergeSort(int[] Arr,int start,int end) {		
 		if(start>=end) {
 			return;
 		}
+		
+		int mid=(end+start)/2;
 		mergeSort(Arr,start,mid);
 		mergeSort(Arr,mid+1,end);
 		merging(Arr,start,mid,end);

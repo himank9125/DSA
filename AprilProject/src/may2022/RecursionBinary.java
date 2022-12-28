@@ -8,7 +8,7 @@ public class RecursionBinary {
 
 	}
 	public static int binaryRec(int n) {
-		int result=0;;
+		int result=0;
 		if(n<2) {
 			result=n%2;
 			return result;
